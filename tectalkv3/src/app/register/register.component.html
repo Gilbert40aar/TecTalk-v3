@@ -8,37 +8,49 @@
             <p class="header-text">Get your TecTalk account now.</p>
         </section>
         <section class="login-body">
-            <form action="login.html" id="form">
+            <form #myform="ngForm">
                 <div class="form-group">
-                    <label for="">Email</label>
+                    <div class="label-group">
+                        <label for="">Email</label>
+                        <span class="msg">{{emailMessage}}</span>
+                    </div>
+
                     <div class="input-group">
                         <span class="input-icon"><i class="fa fa-envelope"></i></span>
-                        <input type="text" id="email" name="email" class="form-control" placeholder="Enter Email" onblur="validateEmail()">
+                        <input type="text" id="email" ngModel name="email" class="form-control" (blur)="checkEmail(myform)" placeholder="Enter Email" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="">Username</label>
                     <div class="input-group">
                         <span class="input-icon"><i class="fa fa-user"></i></span>
-                        <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
+                        <input type="text" id="username" ngModel name="username" class="form-control" placeholder="Enter Username" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Password</label>
+                    <div class="label-group">
+                        <label for="">Password</label>
+                        <span>{{pswMessage1}}</span>
+                    </div>
+
                     <div class="input-group">
                         <span class="input-icon"><i class="fa fa-lock"></i></span>
-                        <input type="password" id="pass1" name="pass1" class="form-control" placeholder="Enter Password" onblur="checkPass1()">
+                        <input type="password" id="pass1" ngModel name="pass1" class="form-control" (blur)="checkPassword1(myform)" placeholder="Enter Password" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Re-enter Password</label>
+                    <div class="label-group">
+                        <label for="">Re-enter Password</label>
+                        <span>{{pswMessage2}}</span>
+                    </div>
+
                     <div class="input-group">
                         <span class="input-icon"><i class="fa fa-lock"></i></span>
-                        <input type="password" id="pass2" name="pass2" class="form-control" placeholder="Enter Password" onblur="checkPass2()">
+                        <input type="password" id="pass2" ngModel name="pass2" class="form-control" (blur)="checkPassword2(myform)" placeholder="Enter Password" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-sign-in">Sign up</button>
+                    <button class="btn btn-sign-in" (click)="submitHandler(myform)">Sign up</button>
                 </div>
             </form>
         </section>
