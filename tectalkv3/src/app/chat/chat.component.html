@@ -59,14 +59,17 @@
             </span>-->
         </div>
         <h5 class="recent">Recent</h5>
-        <div class="chats">
+        <div class="chats" id="onlinelist">
             <section class="chats-item" *ngFor="let e of accounts">
+                <section class="online-indicator"></section>
                 <img src="assets/img/NoImage.png" />
                 <div class="item-group">
                     <span class="fullname">{{e.username}}</span>
                     <span class="last-message">Something from the chat!</span>
                 </div>
-                <section class="online-time">05 min</section>
+                <section class="online-time">
+
+                </section>
             </section>
             <!--<section class="chats-item">
                 <img src="assets/img/NoImage.png" />

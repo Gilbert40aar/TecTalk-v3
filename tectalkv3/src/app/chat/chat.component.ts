@@ -26,5 +26,7 @@ export class ChatComponent implements OnInit {
 
     this.accounts = data.Accounts;
   }
+
+  
   
 }

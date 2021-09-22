@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
         } else {
           let currentTime = Math.floor(Date.now()/1000);
           window.localStorage.setItem('account_id', result.account_id);
-          window.localStorage.setItem('onlineTime', currentTime.toString())
           window.localStorage.setItem('loggedIn', '1');
           this.router.navigate(['/chat']);
         }

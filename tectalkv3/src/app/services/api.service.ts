@@ -34,9 +34,10 @@ export class ApiService {
   }
 
   accountLogout() {
-    //let account_id = data.account_id
-    let logout = this.baseUrl + 'login/logout/' + window.localStorage.getItem('account_id');
-    if(!this.http.get(this.baseUrl + 'login/logout/' + window.localStorage.getItem('account_id'))) {
+    let account_id = window.localStorage.getItem('account_id');
+    //console.log(account_id);
+    let logout = this.http.get(this.baseUrl + 'login/logout/' + account_id).toPromise();
+    if(!logout) {
       return false;
     } else {
       window.localStorage.removeItem('loggedIn');

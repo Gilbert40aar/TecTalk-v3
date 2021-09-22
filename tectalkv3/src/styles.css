@@ -432,6 +432,20 @@ body {
     color: var(--text-dark);
 }
 
+.menu-views .chats .chats-item .online-indicator {
+    width: 6px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.menu-views .chats .chats-item .online-indicator.online {
+    background-color: lime;
+}
+
+.menu-views .chats .chats-item .online-indicator.offline {
+    background-color: crimson;
+}
+
 .menu-views .chats .chats-item img {
     width: 50px;
     height: auto;
