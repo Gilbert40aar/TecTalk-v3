@@ -22,6 +22,9 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link"><i class="fa fa-gear"></i></a>
                 </li>
+                <li class="nav-item">
+                    <a routerLink="/logout" class="nav-link"><i class="fa fa-sign-out"></i></a>
+                </li>
             </ul>
         </nav>
         <span class="profile-menu">
@@ -37,6 +40,11 @@
             </div>
         </form>
         <div class="row">
+            <span class="user-item" *ngFor="let a of accounts | slice:0:4;">
+        <img src="assets/img/NoImage.png" alt="" />
+        <span class="user-text">{{a.username}}</span>
+            </span>
+            <!--
             <span class="user-item">
         <img src="assets/img/NoImage.png" alt="" />
         <span class="user-text">Name</span>
@@ -48,15 +56,19 @@
             <span class="user-item">
         <img src="assets/img/NoImage.png" alt="" />
         <span class="user-text">Name</span>
-            </span>
-            <span class="user-item">
-        <img src="assets/img/NoImage.png" alt="" />
-        <span class="user-text">Name</span>
-            </span>
+            </span>-->
         </div>
         <h5 class="recent">Recent</h5>
         <div class="chats">
-            <section class="chats-item">
+            <section class="chats-item" *ngFor="let e of accounts">
+                <img src="assets/img/NoImage.png" />
+                <div class="item-group">
+                    <span class="fullname">{{e.username}}</span>
+                    <span class="last-message">Something from the chat!</span>
+                </div>
+                <section class="online-time">05 min</section>
+            </section>
+            <!--<section class="chats-item">
                 <img src="assets/img/NoImage.png" />
                 <div class="item-group">
                     <span class="fullname">Firstname Lastname</span>
@@ -151,15 +163,7 @@
                     <span class="last-message">Something from the chat!</span>
                 </div>
                 <section class="online-time">05 min</section>
-            </section>
-            <section class="chats-item">
-                <img src="assets/img/NoImage.png" />
-                <div class="item-group">
-                    <span class="fullname">Firstname Lastname</span>
-                    <span class="last-message">Something from the chat!</span>
-                </div>
-                <section class="online-time">05 min</section>
-            </section>
+            </section>-->
         </div>
     </aside>
     <main class="chat-window">

@@ -9,6 +9,7 @@ import { RecoverpwComponent } from './recoverpw/recoverpw.component';
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     RecoverpwComponent,
-    ChatComponent
+    ChatComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
