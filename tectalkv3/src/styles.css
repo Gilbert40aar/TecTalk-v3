@@ -547,12 +547,12 @@ body {
     border-radius: .5rem;
 }
 
-.chat-window .chat-body .chat-item:nth-child(odd) {
+.chat-window .chat-body .chat-item.left {
     align-self: flex-start;
     background-color: var(--bg-primary);
 }
 
-.chat-window .chat-body .chat-item:nth-child(even) {
+.chat-window .chat-body .chat-item.right {
     align-self: flex-end;
     background-color: var(--bg-secondary);
     color: var(--text-warning);
@@ -563,6 +563,8 @@ body {
     padding: 1.5rem 1.5rem;
     display: var(--display-flex);
     flex-wrap: var(--flex-wrap);
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .chat-window .chat-body .chat-item .message-from {
@@ -597,9 +599,10 @@ body {
 
 /* Here are we making the styling for the chat footer */
 
-.chat-window .chat-footer {
+.chat-window .chat-footer form {
     padding: 1.5rem 1.5rem;
     display: var(--display-flex);
+    flex-direction: var(--flex-row);
     border-top: 1px solid rgba(247, 245, 243, .5);
     bottom: 0;
     right: 0;
@@ -607,7 +610,7 @@ body {
     position: fixed;
 }
 
-.chat-footer .form-control {
+.chat-window .chat-footer form .form-control {
     outline: none;
     background-color: rgba(11, 11, 9, .7);
     border-color: rgba(11, 11, 9, .7);
@@ -619,7 +622,7 @@ body {
     margin-right: .5rem;
 }
 
-.chat-footer .btn {
+.chat-window .chat-footer form .btn {
     padding: 0 1rem;
     background-color: transparent;
     border: none;
@@ -629,14 +632,15 @@ body {
     text-align: center;
 }
 
-.chat-footer .btn.active {
+.chat-window .chat-footer form .btn.active {
     border: 1px solid var(--bg-primary);
 }
 
-.chat-footer .btn {
+.chat-window .chat-footer form .btn {
     margin-right: .5rem;
+    cursor: pointer;
 }
 
-.chat-footer .btn.btn-send {
+.chat-window .chat-footer form .btn.btn-send {
     background-color: var(--bg-primary);
 }

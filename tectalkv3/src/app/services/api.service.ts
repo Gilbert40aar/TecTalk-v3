@@ -4,6 +4,7 @@ import {IAccount} from 'src/app/interfaces/account';
 import {ILogin} from 'src/app/interfaces/login';
 import { IGrantedLogin } from '../interfaces/grantedLogin';
 import { DataContainer } from '../interfaces/dataContainer';
+import { IMessage } from '../interfaces/message';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,14 @@ export class ApiService {
 
   async showAllAccounts(): Promise<DataContainer> {
     return this.http.get<DataContainer>(this.baseUrl + 'account/select').toPromise();
+  }
+
+  sendMessage(data: IMessage): Promise<Object> {
+    const body = JSON.stringify(data);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+
+    return this.http.post(this.baseUrl + 'messages/insert', body, {headers: headers}).toPromise();
   }
 }
