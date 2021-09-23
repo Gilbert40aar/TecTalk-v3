@@ -14,7 +14,8 @@ export class ChatComponent implements OnInit {
 
   accounts: IAccount[] = [];
   chat: IMessage[] = [];
-  @ViewChild('messageBox') messagebox: HTMLInputElement; 
+  message: string;
+  //@ViewChild('message') message: HTMLInputElement; 
 
   constructor(private api: ApiService) { 
     
@@ -44,13 +45,15 @@ export class ChatComponent implements OnInit {
     let data: IMessage = {
       account_id: window.localStorage.getItem('account_id'),
       datetime: this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()),
-      message: form.value.message
+      message: form.value.message,
+      todaydate: d.getFullYear() + "." + d.getMonth() + "." + d.getDate()
     }
-
-    console.log(data);
+    
+    //console.log(data);
     if(this.api.sendMessage(data)) {
-      form.value.message.value = '';
-      this.messagebox.value = ""
+      //form.value.message = "";
+      this.message = ""
+
     }
 
     
