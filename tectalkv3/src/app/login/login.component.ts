@@ -33,9 +33,13 @@ export class LoginComponent implements OnInit {
         if(!result) {
           console.log("An error occour!!!");
         } else {
-          let currentTime = Math.floor(Date.now()/1000);
+          let d = new Date();
+          let hour = d.getHours();
+          let min = d.getMinutes();
+          let currentTime = hour + ":" + min;
           window.localStorage.setItem('account_id', result.account_id);
           window.localStorage.setItem('loggedIn', '1');
+          window.localStorage.setItem('loginTime', currentTime.toString());
           this.router.navigate(['/chat']);
         }
       }

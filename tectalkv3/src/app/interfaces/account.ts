@@ -4,5 +4,6 @@ export interface IAccount {
     password?: string;
     email: string;
     online_status? :string;
-    gender?: string;
+    picture?: string;
+    fullname?: string;
 }

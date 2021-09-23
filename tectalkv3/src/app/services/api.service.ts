@@ -3,7 +3,7 @@ import { HttpHeaders, HttpClient, HttpParams, HttpResponse } from '@angular/comm
 import {IAccount} from 'src/app/interfaces/account';
 import {ILogin} from 'src/app/interfaces/login';
 import { IGrantedLogin } from '../interfaces/grantedLogin';
-import { DataContainer } from '../interfaces/dataContainer';
+import { DataContainer, DataContainerSingle } from '../interfaces/dataContainer';
 import { IMessage } from '../interfaces/message';
 
 @Injectable({
@@ -43,6 +43,7 @@ export class ApiService {
     } else {
       window.localStorage.removeItem('loggedIn');
       window.localStorage.removeItem('account_id');
+      window.localStorage.removeItem('loginTime');
       return true;
     }
   }
@@ -58,5 +59,9 @@ export class ApiService {
     });
 
     return this.http.post(this.baseUrl + 'messages/insert', body, {headers: headers}).toPromise();
+  }
+
+  async showSingleAccount(): Promise<DataContainerSingle> {
+    return this.http.get<DataContainerSingle>(this.baseUrl + 'account/single/' + window.localStorage.getItem('account_id')).toPromise();
   }
 }

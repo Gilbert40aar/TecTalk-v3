@@ -11,4 +11,18 @@ $(document).ready(function(e) {
         $('#' + viewName).show();
     }
 
+    $("#about").on('click', function() {
+        $("#about").toggleClass('active');
+        $("#about-box").toggleClass('show');
+        $("#files").removeClass('active');
+        $("#files-box").removeClass('show');
+    });
+
+    $("#files").on('click', function() {
+        $("#files").toggleClass('active');
+        $("#about").removeClass('active');
+        $("#about-box").removeClass('show');
+        $("#files-box").toggleClass('show');
+    });
+
 });
