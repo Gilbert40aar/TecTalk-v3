@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { FormBuilder, FormControl, FormGroup, NgForm, FormsModule, Validators } from '@angular/forms';
-import { ILogin } from '../interfaces/login';
+import { ILogin, ImailCheck, IpassCheck } from '../interfaces/login';
 import { Router } from '@angular/router';
+import { IGrantedLogin } from '../interfaces/grantedLogin';
 
 @Component({
   selector: 'app-login',
@@ -11,39 +12,69 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  mailCheck: ImailCheck;
+  passCheck: IpassCheck;
   constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  async emailValid(email: string): Promise<boolean> {
+    let result: ImailCheck = await this.api.checkEmail(email);
+    return result.exists;
+  }
+
+  async passwordValid(password: string): Promise<boolean> {
+    let result: IpassCheck = await this.api.checkPassword(password);
+    return result.exists;
+  }
+
+  successfullLogin(): void {
+    this.router.navigate(['/chat/userlist']);
+  }
+
+  failLogin(): void {
+
+  }
+
+  async saveLoginState(email: string, password: string): Promise<boolean> {
+    let data : ILogin = { email, password };
+    let result: IGrantedLogin = await this.api.accountLogin(data);
+    
+    if (!result) return false;
+
+    let d = new Date();
+    let hour = d.getHours();
+    let min = d.getMinutes();
+    let currentTime = hour + ":" + min;
+
+    window.localStorage.setItem('account_id', result.account_id);
+    window.localStorage.setItem('loggedIn', '1');
+    window.localStorage.setItem('loginTime', currentTime.toString());
+
+    return true;
+  }
+
   async loginHandler(form: NgForm) {
-    if(form.value.username === "") {
-      console.log("Username may not be empty");
-    } else {
-      if(form.value.password === "") {
-        console.log("Password may not be empty");
-      } else {
-        let data : ILogin = {
-          username: form.value.username,
-          password: form.value.password
-        }
+    let email = form.value.email;
+    let password = form.value.password;
 
-        let result = await this.api.accountLogin(data);
+    let emailValid = await this.emailValid(email);
+    let passwordValid = await this.passwordValid(password);
 
-        if(!result) {
-          console.log("An error occour!!!");
-        } else {
-          let d = new Date();
-          let hour = d.getHours();
-          let min = d.getMinutes();
-          let currentTime = hour + ":" + min;
-          window.localStorage.setItem('account_id', result.account_id);
-          window.localStorage.setItem('loggedIn', '1');
-          window.localStorage.setItem('loginTime', currentTime.toString());
-          this.router.navigate(['/chat']);
-        }
-      }
+    if (!emailValid || !passwordValid) {
+      this.failLogin();
+      return;
     }
+
+    let savedState = this.saveLoginState(email, password);
+
+    if (!savedState) {
+      this.failLogin();
+      return;
+    }
+
+    this.successfullLogin();
   }
 
 }

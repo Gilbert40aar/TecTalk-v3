@@ -314,6 +314,19 @@ body {
     display: none;
 }
 
+.menu-views .headline-group {
+    display: var(--display-flex);
+    justify-content: var(--justify-content-space-between);
+}
+
+.menu-views .headline-group .btn {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: rgba(247, 245, 243, .75);
+}
+
 .menu-views .headline {
     margin: 0;
     padding: 0;
@@ -651,7 +664,7 @@ body {
 
 /* Here are we making the styling for the chat body / the main chat window */
 
-.chat-window .chat-body {
+.chat-window .chat-body app-messages {
     top: 89px;
     bottom: 87.4px;
     right: 0;
@@ -667,6 +680,8 @@ body {
     margin: 1.5rem;
     margin-bottom: .5rem;
     border-radius: .5rem;
+    align-self: flex-start;
+    background-color: var(--bg-primary);
 }
 
 .chat-window .chat-body .chat-item.left {

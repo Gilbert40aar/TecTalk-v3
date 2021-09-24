@@ -1,6 +1,6 @@
 $(document).ready(function(e) {
 
-    $('[data-launch-view]').click(function(e) {
+    /*$('[data-launch-view]').click(function(e) {
         e.preventDefault();
         var viewName = $(this).attr('data-launch-view');
         showView(viewName);
@@ -9,7 +9,7 @@ $(document).ready(function(e) {
     function showView(viewName) {
         $('.page').hide();
         $('#' + viewName).show();
-    }
+    }*/
 
     $("#about").on('click', function() {
         $("#about").toggleClass('active');

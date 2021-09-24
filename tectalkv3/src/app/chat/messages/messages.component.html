@@ -1,0 +1,12 @@
+<span class="chat-item" *ngFor="let msg of chat" ngClass="msg.Account_id == account_id ? right : left">
+    <section class="message">
+        {{msg.Message}}
+    </section>
+    <section class="message-from">
+        <div class="message-info">
+            <img src="assets/img/NoImage.png" />
+            <span class="message-name">{{msg.Username}}</span>
+</div>
+<span class="time"><i class="fa fa-clock-o"></i>09:15</span>
+</section>
+</span>

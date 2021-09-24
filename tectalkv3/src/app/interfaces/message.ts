@@ -1,6 +1,9 @@
 export interface IMessage {
     account_id: string;
     datetime: string;
-    message: string;
-    todaydate: string;
+    Message: string;
+    Username?: string;
+    Picture?: string;
+    Fullname?: string;
+
 }

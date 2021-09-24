@@ -1,0 +1,18 @@
+<div class="row">
+    <span class="user-item" *ngFor="let account of accounts | slice: 0:4">
+        <img src="assets/img/NoImage.png" alt="" />
+        <span class="user-text">{{ account.username }}</span>
+    </span>
+</div>
+<h5 class="recent">Recent</h5>
+<div class="chats" id="onlinelist">
+    <section class="chats-item" *ngFor="let account of accounts">
+        <section class="online-indicator" [ngClass]="{'online':account.online_status === '1', 'offline':account.online_status !== '1'}"></section>
+        <img src="assets/img/NoImage.png" />
+        <div class="item-group">
+            <span class="fullname">{{ account.username }}</span>
+            <span class="last-message">Something from the chat!</span>
+        </div>
+        <section class="online-time"></section>
+    </section>
+</div>

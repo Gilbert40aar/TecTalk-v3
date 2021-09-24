@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 
     setInterval(function() {
         $.ajax({
@@ -33,4 +33,4 @@ $(document).ready(function() {
         });
     }, 1000);
 
-});
+});*/

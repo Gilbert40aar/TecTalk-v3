@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import {IAccount} from 'src/app/interfaces/account';
-import {ILogin} from 'src/app/interfaces/login';
-import { IGrantedLogin } from '../interfaces/grantedLogin';
-import { DataContainer, DataContainerSingle } from '../interfaces/dataContainer';
-import { IMessage } from '../interfaces/message';
+import {ILogin, ImailCheck, IpassCheck} from 'src/app/interfaces/login';
+import { IGrantedLogin } from 'src/app/interfaces/grantedLogin';
+import { DataContainer, DataContainerSingle, ChatMessageContainer } from 'src/app/interfaces/dataContainer';
+import { IMessage } from 'src/app/interfaces/message';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +25,10 @@ export class ApiService {
   }
 
   accountLogin(data: ILogin): Promise<IGrantedLogin> {
-    let username = data.username;
+    let email = data.email;
     let password = data.password;
 
-    let response  = this.http.get<IGrantedLogin>(this.baseUrl + "login/login/" + username + "/" + password).toPromise();
+    let response  = this.http.get<IGrantedLogin>(this.baseUrl + "login/login/" + email + "/" + password).toPromise();
 
     //console.log(window);
     return response;
@@ -63,5 +63,17 @@ export class ApiService {
 
   async showSingleAccount(): Promise<DataContainerSingle> {
     return this.http.get<DataContainerSingle>(this.baseUrl + 'account/single/' + window.localStorage.getItem('account_id')).toPromise();
+  }
+
+  async checkEmail(email): Promise<ImailCheck> {
+    return this.http.get<ImailCheck>(this.baseUrl + 'login/checkEmail/' + email).toPromise();
+  }
+
+  async checkPassword(password): Promise<IpassCheck> {
+    return this.http.get<IpassCheck>(this.baseUrl + 'login/checkPassword/' + password).toPromise();
+  }
+
+  async getChatMessages(): Promise<ChatMessageContainer> {
+    return await this.http.get<ChatMessageContainer>(this.baseUrl + 'messages/select').toPromise();
   }
 }

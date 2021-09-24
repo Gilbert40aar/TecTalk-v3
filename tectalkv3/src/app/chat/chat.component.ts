@@ -69,9 +69,8 @@ export class ChatComponent implements OnInit {
     let d = new Date();
     let data: IMessage = {
       account_id: window.localStorage.getItem('account_id'),
-      datetime: this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()),
-      message: form.value.message,
-      todaydate: d.getFullYear() + "." + d.getMonth() + "." + d.getDate()
+      datetime: d.getFullYear() + "." + d.getMonth() + "." + d.getDate() +" " + this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()),
+      Message: form.value.message,
     }
     
     //console.log(data);

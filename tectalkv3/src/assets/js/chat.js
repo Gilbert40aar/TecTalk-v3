@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 
     setInterval(function() {
         $.ajax({
@@ -10,8 +10,12 @@ $(document).ready(function() {
 
                 for (let i = 0; i < messagesLength; i++) {
                     let msg = data.Messages[i];
-                    let status = msg.Account_id === window.localStorage.getItem('account_id') ? "left" : "right";
+                    let status = msg.Account_id === window.localStorage.getItem('account_id') ? "right" : "left";
                     let account = await getAccount(msg.Account_id);
+
+                    let d = new Date(msg.Datetime);
+
+                    let time = d.getHours() + ":" + d.getMinutes();
 
                     let chatItem = `
                         <span class="chat-item ${status}">
@@ -26,7 +30,7 @@ $(document).ready(function() {
                                     </span>
                                 </div>
                                 <span class="time">
-                                    <i class="fa fa-clock-o"></i>${msg.Datetime}
+                                    <i class="fa fa-clock-o"></i>${time}
                                 </span>
                             </section>
                         </span>`;
@@ -45,4 +49,4 @@ $(document).ready(function() {
         //console.log(result.Account[0]);
         return result.Account[0];
     }
-});
+});*/

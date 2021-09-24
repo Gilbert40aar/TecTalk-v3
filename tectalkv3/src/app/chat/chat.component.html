@@ -6,20 +6,17 @@
         <nav class="navbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link" id="profileShow" data-launch-view="profile"><i class="fa fa-user"></i></a>
+                    <a routerLink="/chat/account" class="nav-link" id="profileShow"><i class="fa fa-user"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" id="chatroomShow" data-launch-view="chatrooms"><i class="fa fa-commenting"></i
+                    <a routerLink="/chat/chatrooms" class="nav-link" id="chatroomShow" data-launch-view="chatrooms"><i class="fa fa-commenting"></i
           ></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" id="onlineShow" data-launch-view="users"><i class="fa fa-users"></i></a>
+                    <a routerLink="/chat/userlist" class="nav-link" id="onlineShow" data-launch-view="users"><i class="fa fa-users"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" id="updateShow" data-launch-view="update"><i class="fa fa-address-book"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" id="settingShow" data-launch-view="settings"><i class="fa fa-gear"></i></a>
+                    <a routerLink="/chat/security" class="nav-link" id="settingShow" data-launch-view="settings"><i class="fa fa-gear"></i></a>
                 </li>
                 <li class="nav-item">
                     <a routerLink="/logout" class="nav-link"><i class="fa fa-sign-out"></i
@@ -32,7 +29,8 @@
     </span>
     </header>
     <aside class="menu-views">
-        <div class="page" id="users">
+        <router-outlet></router-outlet>
+        <!--<div class="page" id="users">
             <h4 class="headline">Chats</h4>
             <form action="#" method="post">
                 <div class="search-box">
@@ -118,9 +116,12 @@
                 Here can you update your profile.
             </p>
 
-        </div>
+        </div>-->
     </aside>
     <main class="chat-window">
+        <app-chat-messages></app-chat-messages>
+    </main>
+    <!--<main class="chat-window">
         <div class="chat-header">
             <section class="header-profile">
                 <img src="assets/img/NoImage.png" />
@@ -135,7 +136,7 @@
             </ul>
         </div>
         <div class="chat-body" id="chatBody">
-            <!--<span class="chat-item">
+            <span class="chat-item">
                 <section class="message">
                     This is the message that will be shown in the chat window
                 </section>
@@ -146,7 +147,7 @@
                     </div>
                     <span class="time"><i class="fa fa-clock-o"></i>09:15</span>
                 </section>
-            </span>-->
+            </span>
         </div>
         <div class="chat-footer">
             <form #myform="ngForm">
@@ -156,5 +157,5 @@
                 <button type="submit" class="btn btn-send fa fa-paper-plane" (click)="sendMessage(myform)"></button>
             </form>
         </div>
-    </main>
+    </main>-->
 </div>

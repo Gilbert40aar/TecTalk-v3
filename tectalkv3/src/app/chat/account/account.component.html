@@ -1,0 +1,36 @@
+<div class="page" id="profile">
+    <div class="headline-group">
+        <h4 class="headline">My Account</h4>
+        <button class="btn btn-edit fa fa-pencil" (click)="updateAccount()"></button>
+    </div>
+    <div class="flex-row">
+        <img src="assets/img/NoImage.png" alt="" class="profile-picture">
+        <span class="profile-name">{{fullName}}</span>
+        <span class="status" id="status"><i class="fa fa-circle" [ngClass]="[ isOnline ? 'online' : 'offline']" id="status-dot"></i>Active</span>
+    </div>
+    <p class="profile-text">
+        Here can you see your profile or others profile.
+    </p>
+    <div class="dropdown" id="about"><span class="dropdown-group"><i class="fa fa-user"></i>About</span><i class="fa fa-angle-down"></i></div>
+    <div class="dropdown-box" id="about-box">
+        <div class="box-group">
+            <label>Name</label>
+            <span class="group-text">{{fullName}}</span>
+        </div>
+        <div class="box-group">
+            <label>Email</label>
+            <span class="group-text">{{email}}</span>
+        </div>
+        <div class="box-group">
+            <label>Time</label>
+            <span class="group-text">{{time}}</span>
+        </div>
+        <div class="box-group">
+            <label>Location</label>
+            <span class="group-text">{{location}}</span>
+        </div>
+    </div>
+
+    <div class="dropdown" id="files"><span class="dropdown-group"><i class="fa fa-paperclip"></i>Attached Files</span><i class="fa fa-angle-down"></i></div>
+    <div class="dropdown-box" id="files-box"></div>
+</div>

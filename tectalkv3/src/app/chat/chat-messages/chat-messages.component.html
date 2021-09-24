@@ -1,0 +1,36 @@
+<div class="chat-header">
+    <section class="header-profile">
+        <img src="assets/img/NoImage.png" />
+        <span class="profile-name">Firstname Lastname</span>
+    </section>
+    <ul class="header-menu">
+        <li class="menu-item"><i class="fa fa-search"></i></li>
+        <li class="menu-item"><i class="fa fa-phone"></i></li>
+        <li class="menu-item"><i class="fa fa-camera"></i></li>
+        <li class="menu-item"><i class="fa fa-user"></i></li>
+        <li class="menu-item"><i class="fa fa-ellipsis-h"></i></li>
+    </ul>
+</div>
+<div class="chat-body" id="chatBody">
+    <app-messages></app-messages>
+    <!--<span class="chat-item">
+                <section class="message">
+                    This is the message that will be shown in the chat window
+                </section>
+                <section class="message-from">
+                    <div class="message-info">
+                        <img src="assets/img/NoImage.png" />
+                        <span class="message-name">Firstname Lastname</span>
+                    </div>
+                    <span class="time"><i class="fa fa-clock-o"></i>09:15</span>
+                </section>
+            </span>-->
+</div>
+<div class="chat-footer">
+    <form #myform="ngForm">
+        <input type="text" ngModel name="message" id="message" class="form-control" placeholder="Enter message..." [value]="message" />
+        <button class="btn btn-emoji fa fa-smile-o"></button>
+        <button class="btn btn-attachment fa fa-paperclip"></button>
+        <button type="submit" class="btn btn-send fa fa-paper-plane" (click)="sendMessage(myform)"></button>
+    </form>
+</div>
