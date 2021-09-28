@@ -1,9 +1,12 @@
 export interface IAccount {
     account_id?: number;
-    username: string;
+    username?: string;
     password?: string;
-    email: string;
+    email?: string;
     online_status? :string;
     picture?: string;
     fullname?: string;
+    firstname?: string;
+    lastname?: string;
+    location?: string;
 }

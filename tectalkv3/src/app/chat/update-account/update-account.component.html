@@ -2,4 +2,49 @@
     <div class="headline-group">
         <h4 class="headline">Update Account</h4>
     </div>
+    <div class="flex-row">
+        <img src="assets/img/NoImage.png" alt="" class="profile-picture">
+        <span class="profile-name">{{fullname}}</span>
+    </div>
+    <p class="profile-text"></p>
+    <form #myform="ngForm">
+        <input type="hidden" ngModel name="account_id" value="{{account_id}}">
+        <div class="dropdown" id="personal">
+            Personal Info <i class="fa fa-angle-down"></i>
+        </div>
+        <div class="dropdown-box" id="personal-box">
+            <div class="box-group">
+                <label>Firstname</label>
+                <input type="text" ngModel name="firstname" value="{{firstname}}" placeholder="Enter Firstname" class="form-control">
+            </div>
+            <div class="box-group">
+                <label>Lastname</label>
+                <input type="text" ngModel name="lastname" value="{{lastname}}" placeholder="Enter Lastname" class="form-control">
+            </div>
+            <div class="box-group">
+                <label>Username</label>
+                <input type="text" ngModel name="username" value="{{username}}" placeholder="Enter Username" class="form-control">
+            </div>
+            <div class="box-group">
+                <label>Location</label>
+                <input type="text" ngModel name="location" value="{{location}}" placeholder="Enter Location" class="form-control">
+            </div>
+            <div class="box-group">
+                <label>Picture</label>
+                <input type="file" ngModel name="picture" placeholder="Enter Location" class="form-control">
+            </div>
+        </div>
+
+        <div class="dropdown" id="privacy">
+            Privacy <i class="fa fa-angle-down"></i>
+        </div>
+        <div class="dropdown-box" id="privacy-box"></div>
+
+        <div class="dropdown" id="help">
+            Help <i class="fa fa-angle-down"></i>
+        </div>
+        <div class="dropdown-box" id="help-box"></div>
+
+        <button type="submit" class="btn btn-update" (click)="updateAccount(myform)">Save Update</button>
+    </form>
 </div>

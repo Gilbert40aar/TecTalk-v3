@@ -470,6 +470,17 @@ body {
     flex-direction: var(--flex-column);
 }
 
+.menu-views .dropdown-box .box-group .form-control {
+    flex: 1 1 auto;
+    background-color: rgba(247, 245, 243, .25);
+    color: rgba(247, 245, 243, .75);
+    border: none;
+    font-size: 16px;
+    border-radius: .25rem !important;
+    outline: none;
+    padding: 0.35rem !important;
+}
+
 .menu-views .dropdown-box .box-group:last-child {
     margin-bottom: 0;
 }
@@ -477,6 +488,22 @@ body {
 .menu-views .dropdown-box .box-group .group-text {
     color: rgba(247, 245, 243, 1);
     margin-top: 5px;
+}
+
+.menu-views .btn {
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    padding: .5rem 1rem;
+    font-size: .9375rem;
+    border-radius: .25rem;
+    border: 1px solid transparent
+}
+
+.menu-views .btn.btn-update {
+    color: var(--text-light);
+    border-color: var(--bg-primary);
+    background-color: var(--bg-primary);
 }
 
 .menu-views .row::before,

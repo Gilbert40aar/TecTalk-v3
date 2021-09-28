@@ -76,4 +76,13 @@ export class ApiService {
   async getChatMessages(): Promise<ChatMessageContainer> {
     return await this.http.get<ChatMessageContainer>(this.baseUrl + 'messages/select').toPromise();
   }
+
+  updateAccount(data: IAccount): Promise<Object> {
+    const body = JSON.stringify(data);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+
+    return this.http.post<DataContainerSingle>(this.baseUrl + "account/update", body, {headers: headers}).toPromise();
+  }
 }
