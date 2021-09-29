@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,11 @@ export class FileserviceService {
   constructor(private http: HttpClient) { }
 
   OnUploadFile(fileName) {
-    this.http.get(`http://192.168.4.126/tectalk/api/account/uploadPicture/${fileName}`);
+    const body = JSON.stringify(fileName);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+    this.http.post(`http://192.168.4.126/tectalk/api/account/uploadPicture/${fileName}`, body, {headers});
   }
 }
 

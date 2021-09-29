@@ -7,7 +7,7 @@
         <span class="profile-name">{{fullname}}</span>
     </div>
     <p class="profile-text"></p>
-    <form #myform="ngForm">
+    <form #myform="ngForm" enctype="multipart/form-data">
         <input type="hidden" ngModel name="account_id" value="{{account_id}}">
         <div class="dropdown" id="personal" (click)="personalBoxToggle()">
             Personal Info <i class=" fa fa-angle-down "></i>
@@ -45,6 +45,6 @@
         </div>
         <div class="dropdown-box" id="help-box"></div>
 
-        <button type="submit " class="btn btn-update " (click)="updateAccount(myform)">Save Update</button>
+        <button type="submit " class="btn btn-update " (click)="updateAccount(myform, $event)">Save Update</button>
     </form>
 </div>

@@ -51,7 +51,7 @@ export class UpdateAccountComponent implements OnInit {
     this.account_id = window.localStorage.getItem('account_id');
   }
 
-  updateAccount(form: NgForm) {
+  updateAccount(form: NgForm, event) {
     
     let picture: string = form.value.picture;
     let pathRegex = /^(.*\\).*$/;
@@ -73,13 +73,14 @@ export class UpdateAccountComponent implements OnInit {
       console.log('Something went wrong...');
     } else {
       console.log('Account is updated...');
-      this.onUploadFile();
+      this.fileservice.OnUploadFile(event.target.files[0]);
     }
     
   }
 
   onFileUpload(event) {
-    this.selectedFile = event.target.files[0]; 
+    //this.selectedFile = event.target.files[0]; 
+    this.fileservice.OnUploadFile(event.target.files[0]);
   }
 
   onUploadFile() {
