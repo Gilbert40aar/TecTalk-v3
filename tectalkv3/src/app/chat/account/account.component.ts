@@ -44,4 +44,38 @@ export class AccountComponent implements OnInit {
   updateAccount() {
     this.router.navigate(['/chat/update-account']);
   }
+
+  aboutBoxToggle() {
+    let aboutBox = document.getElementById("about-box");
+    let about = document.getElementById("about");
+    let filesBox = document.getElementById("files-box");
+    let files = document.getElementById("files");
+    if(about.className === 'dropdown') {
+      about.className += ' active';
+      aboutBox.className += ' show';
+      files.className = 'dropdown';
+      filesBox.className = 'dropdown-box';
+    } else {
+      about.className = 'dropdown';
+      aboutBox.className = 'dropdown-box';
+      
+    }
+  }
+
+  filesBoxToggle() {
+    let filesBox = document.getElementById("files-box");
+    let files = document.getElementById("files");
+    let aboutBox = document.getElementById("about-box");
+    let about = document.getElementById("about");
+    if(files.className === 'dropdown') {
+      files.className += ' active';
+      filesBox.className += ' show';
+      about.className = 'dropdown';
+      aboutBox.className = 'dropdown-box';
+    } else {
+      files.className = 'dropdown';
+      filesBox.className = 'dropdown-box';
+      
+    }
+  }
 }

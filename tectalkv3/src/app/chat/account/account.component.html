@@ -11,7 +11,7 @@
     <p class="profile-text">
         Here can you see your profile or others profile.
     </p>
-    <div class="dropdown" id="about"><span class="dropdown-group"><i class="fa fa-user"></i>About</span><i class="fa fa-angle-down"></i></div>
+    <div class="dropdown" id="about" (click)="aboutBoxToggle()"><span class="dropdown-group"><i class="fa fa-user"></i>About</span><i class="fa fa-angle-down"></i></div>
     <div class="dropdown-box" id="about-box">
         <div class="box-group">
             <label>Name</label>
@@ -31,6 +31,6 @@
         </div>
     </div>
 
-    <div class="dropdown" id="files"><span class="dropdown-group"><i class="fa fa-paperclip"></i>Attached Files</span><i class="fa fa-angle-down"></i></div>
+    <div class="dropdown" id="files" (click)="filesBoxToggle()"><span class="dropdown-group"><i class="fa fa-paperclip"></i>Attached Files</span><i class="fa fa-angle-down"></i></div>
     <div class="dropdown-box" id="files-box"></div>
 </div>

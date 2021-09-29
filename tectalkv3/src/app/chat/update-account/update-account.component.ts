@@ -3,6 +3,7 @@ import { IAccount } from 'src/app/interfaces/account';
 import { DataContainerSingle } from 'src/app/interfaces/dataContainer';
 import { ApiService } from 'src/app/services/api.service';
 import { NgForm, NgModel } from '@angular/forms';
+import { FileserviceService } from 'src/app/services/fileservice.service';
 
 
 @Component({
@@ -13,7 +14,11 @@ import { NgForm, NgModel } from '@angular/forms';
 export class UpdateAccountComponent implements OnInit {
 
   account: IAccount;
-  constructor(private api: ApiService) { }
+
+  public fileName;
+  selectedFile: File;
+
+  constructor(private api: ApiService, private fileservice: FileserviceService) { }
 
   ngOnInit(): void {
     this.getSingleAccount();
@@ -52,7 +57,8 @@ export class UpdateAccountComponent implements OnInit {
     let pathRegex = /^(.*\\).*$/;
     let regex = pathRegex.exec(picture);
     let filename = picture.replace(regex[1], '');
-    
+    this.fileName = filename;
+
     let data: IAccount = {
       account_id: this.account_id,
       firstname: form.value.firstname,
@@ -67,8 +73,83 @@ export class UpdateAccountComponent implements OnInit {
       console.log('Something went wrong...');
     } else {
       console.log('Account is updated...');
+      this.onUploadFile();
     }
     
+  }
+
+  onFileUpload(event) {
+    this.selectedFile = event.target.files[0]; 
+  }
+
+  onUploadFile() {
+    this.fileservice.OnUploadFile(this.selectedFile);
+  }
+
+  personalBoxToggle() {
+    let personalBox = document.getElementById("personal-box");
+    let personal = document.getElementById("personal");
+    let privacyBox = document.getElementById("privacy-box");
+    let privacy = document.getElementById("privacy");
+    let helpBox = document.getElementById("help-box");
+    let help = document.getElementById("help");
+        
+    if(personal.className === 'dropdown') {
+      personal.className += ' active';
+      personalBox.className += ' show';
+      privacy.className = 'dropdown';
+      privacyBox.className = 'dropdown-box';
+      help.className = 'dropdown';
+      helpBox.className = 'dropdown-box';
+    } else {
+      personal.className = 'dropdown';
+      personalBox.className = 'dropdown-box';
+      
+    }
+  }
+
+  privacyBoxToggle() {
+    let personalBox = document.getElementById("personal-box");
+    let personal = document.getElementById("personal");
+    let privacyBox = document.getElementById("privacy-box");
+    let privacy = document.getElementById("privacy");
+    let helpBox = document.getElementById("help-box");
+    let help = document.getElementById("help");
+        
+    if(privacy.className === 'dropdown') {
+      privacy.className += ' active';
+      privacyBox.className += ' show';
+      personal.className = 'dropdown';
+      personalBox.className = 'dropdown-box';
+      help.className = 'dropdown';
+      helpBox.className = 'dropdown-box';
+    } else {
+      privacy.className = 'dropdown';
+      privacyBox.className = 'dropdown-box';
+      
+    }
+  }
+
+  helpBoxToggle() {
+    let personalBox = document.getElementById("personal-box");
+    let personal = document.getElementById("personal");
+    let privacyBox = document.getElementById("privacy-box");
+    let privacy = document.getElementById("privacy");
+    let helpBox = document.getElementById("help-box");
+    let help = document.getElementById("help");
+        
+    if(help.className === 'dropdown') {
+      help.className += ' active';
+      helpBox.className += ' show';
+      privacy.className = 'dropdown';
+      privacyBox.className = 'dropdown-box';
+      personal.className = 'dropdown';
+      personalBox.className = 'dropdown-box';
+    } else {
+      help.className = 'dropdown';
+      helpBox.className = 'dropdown-box';
+      
+    }
   }
 
 }
