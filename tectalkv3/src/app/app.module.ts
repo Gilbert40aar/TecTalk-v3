@@ -19,6 +19,7 @@ import { OnlinelistComponent } from './chat/onlinelist/onlinelist.component';
 import { ChatMessagesComponent } from './chat/chat-messages/chat-messages.component';
 import { MessagesComponent } from './chat/messages/messages.component';
 import { CreateChatroomComponent } from './create-chatroom/create-chatroom.component';
+import { ChatroomMembersComponent } from './chat/chatroom-members/chatroom-members.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CreateChatroomComponent } from './create-chatroom/create-chatroom.compo
     OnlinelistComponent,
     ChatMessagesComponent,
     MessagesComponent,
-    CreateChatroomComponent
+    CreateChatroomComponent,
+    ChatroomMembersComponent
   ],
   imports: [
     BrowserModule,

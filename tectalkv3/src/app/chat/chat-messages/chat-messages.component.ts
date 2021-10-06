@@ -12,6 +12,7 @@ export class ChatMessagesComponent implements OnInit {
 
   chat: IMessage[] = [];
   Message: string;
+  public ChatroomName = 'Chatroom';
 
   constructor(private api: ApiService) { }
 
@@ -32,6 +33,7 @@ export class ChatMessagesComponent implements OnInit {
       Account_id: window.localStorage.getItem('account_id'),
       Datetime: d.getFullYear() + "." + d.getMonth() + "." + d.getDate() +" " + this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()) + ":" + this.pad(d.getSeconds()),
       Message: form.value.Message,
+      Chatroom_id: window.localStorage.getItem('Chatroom_id')
     }
     
     //console.log(data);

@@ -25,7 +25,7 @@ export class MessagesComponent implements OnInit {
   }
 
   async getMessages() {
-    let data: ChatMessageContainer = await this.api.getChatMessages();
+    let data: ChatMessageContainer = await this.api.getChatMessages(window.localStorage.getItem('Chatroom_id'));
     this.chat = data.Messages;
   }
 

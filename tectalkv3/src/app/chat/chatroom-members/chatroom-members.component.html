@@ -1,0 +1,17 @@
+<div class="page">
+    <div class="headline-group">
+        <h4 class="headline">{{ChatroomName}}</h4>
+        <button type="button" class="fa fa-user-plus btn btn-edit" id="add" (click)="showForm()"></button>
+        <form #myform="ngForm" class="account-form" id="add-account">
+            <section class="form-group" id="add-users">
+                <label>Select user to add</label>
+                <select name="accounts" class="form-control">
+                    <option>Select Account to invite...</option>
+                    <option *ngFor="let account of accounts" value="account.Account_id">{{account.username}}</option>
+                </select>
+            </section>
+            <button type="submit" class="btn btn-update" (click)="assignAccount(myform)">Add Account</button>
+        </form>
+    </div>
+    <div class="flex-row"></div>
+</div>

@@ -317,6 +317,7 @@ body {
 .menu-views .headline-group {
     display: var(--display-flex);
     justify-content: var(--justify-content-space-between);
+    flex-wrap: var(--flex-wrap);
 }
 
 .menu-views .headline-group .btn {
@@ -333,6 +334,21 @@ body {
     font-size: calc(1.26563rem + .1875vw);
     font-weight: 600;
     color: rgba(247, 245, 243, .75);
+}
+
+.menu-views .headline-group .account-form {
+    display: none;
+}
+
+.menu-views .headline-group .account-form.show {
+    display: block;
+    width: 100%;
+}
+
+.menu-views .headline-group .account-form .form-group select.form-control {
+    background-color: rgba(11, 11, 9, .85) transparent;
+    color: var(--text-dark);
+    -webkit-background-color: rgba(11, 11, 9, .85);
 }
 
 .menu-views form {

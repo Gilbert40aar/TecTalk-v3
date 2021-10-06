@@ -45,6 +45,8 @@ export class ApiService {
       window.localStorage.removeItem('loggedIn');
       window.localStorage.removeItem('account_id');
       window.localStorage.removeItem('loginTime');
+      window.localStorage.removeItem('Chatroom_id');
+      window.localStorage.removeItem('ChatroomName');
       return true;
     }
   }
@@ -74,8 +76,8 @@ export class ApiService {
     return this.http.get<IpassCheck>(this.baseUrl + 'login/checkPassword/' + password).toPromise();
   }
 
-  async getChatMessages(): Promise<ChatMessageContainer> {
-    return await this.http.get<ChatMessageContainer>(this.baseUrl + 'messages/select').toPromise();
+  async getChatMessages(room_id): Promise<ChatMessageContainer> {
+    return await this.http.get<ChatMessageContainer>(this.baseUrl + 'messages/select/' + room_id).toPromise();
   }
 
   updateAccount(data: IAccount): Promise<Object> {
@@ -87,8 +89,8 @@ export class ApiService {
     return this.http.post<DataContainerSingle>(this.baseUrl + "account/update", body, {headers: headers}).toPromise();
   }
 
-  async getchatrooms(): Promise<ChatroomContainer> {  
-    return this.http.get<ChatroomContainer>(this.baseUrl + 'chatrooms/select').toPromise();
+  async getchatrooms(id): Promise<ChatroomContainer> {  
+    return this.http.get<ChatroomContainer>(this.baseUrl + 'chatrooms/select/' + id).toPromise();
   }
 
   createChatroom(data: IChatrooms): Promise<Object> {

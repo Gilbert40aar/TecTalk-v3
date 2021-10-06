@@ -29,14 +29,16 @@ export class ChatroomsComponent implements OnInit {
   }
 
   async getChatrooms() {
-    let data: ChatroomContainer = await this.api.getchatrooms();
+    let data: ChatroomContainer = await this.api.getchatrooms(window.localStorage.getItem('account_id'));
     this.chatrooms = data.Chatrooms;
     console.log(this.chatrooms);
     
   }
 
-  showChatroom(event) {
-    console.log(event.target.);
+  showChatroom(id, title) {
+    window.localStorage.setItem('Chatroom_id', id);
+    window.localStorage.setItem('ChatroomName', title);
+    this.router.navigate(['/chat/Chatroom/']);
   }
 
 }

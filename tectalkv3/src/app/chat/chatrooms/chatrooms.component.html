@@ -5,7 +5,7 @@
     </div>
     <div class="flex-row"></div>
     <div class="chats">
-        <div class="chats-item" *ngFor="let room of chatrooms" id={{room.Chatroom_id}} (click)="showChatroom($event)">
+        <div class="chats-item" *ngFor="let room of chatrooms" (click)="showChatroom(room.Chatroom_id, room.ChatroomName)">
             <div class="item-group">
                 <span class="fullname">{{room.ChatroomName}} Chatroom</span>
                 <span class="last-message">Chatroom for everyone!</span>

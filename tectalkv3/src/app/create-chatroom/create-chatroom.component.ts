@@ -20,10 +20,12 @@ export class CreateChatroomComponent implements OnInit {
 
   newChatroom(form: NgForm) {
     let data: IChatrooms = {
-      ChatroomName: form.value.ChatroomName
+      ChatroomName: form.value.ChatroomName,
+      Creator_id: window.localStorage.getItem('account_id')
     }
     this.api.createChatroom(data);
-    console.log(data);
+    this.router.navigate(['chat/chatrooms']);
+    //console.log(data);
     
   }
 

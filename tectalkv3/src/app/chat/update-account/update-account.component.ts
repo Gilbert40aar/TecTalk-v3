@@ -4,6 +4,7 @@ import { DataContainerSingle } from 'src/app/interfaces/dataContainer';
 import { ApiService } from 'src/app/services/api.service';
 import { NgForm, FormsModule } from '@angular/forms';
 import { FileserviceService } from 'src/app/services/fileservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class UpdateAccountComponent implements OnInit {
   public fileName;
   selectedFile: File;
 
-  constructor(private api: ApiService, private fileservice: FileserviceService) { }
+  constructor(private api: ApiService, private fileservice: FileserviceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getSingleAccount();
@@ -65,12 +66,13 @@ export class UpdateAccountComponent implements OnInit {
       picture: filename
     }
 
-    console.log(data);
+    //console.log(data);
     if(!this.api.updateAccount(data)) {
       console.log('Something went wrong...');
     } else {
       console.log('Account is updated...');
       this.fileservice.OnUploadFile(form.value.picture);
+      this.router.navigate(['chat/account']);
     }
     
   }

@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
     window.localStorage.setItem('account_id', result.account_id);
     window.localStorage.setItem('loggedIn', '1');
     window.localStorage.setItem('loginTime', currentTime.toString());
+    window.localStorage.setItem('Chatroom_id', '1');
 
     return true;
   }

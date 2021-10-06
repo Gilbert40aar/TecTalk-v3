@@ -12,6 +12,7 @@ import { ChatroomsComponent } from './chat/chatrooms/chatrooms.component';
 import { UpdateAccountComponent } from './chat/update-account/update-account.component';
 import { SecurityComponent } from './chat/security/security.component';
 import { CreateChatroomComponent } from './create-chatroom/create-chatroom.component';
+import { ChatroomMembersComponent } from './chat/chatroom-members/chatroom-members.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -24,7 +25,8 @@ const routes: Routes = [
     { path: 'chatrooms', component: ChatroomsComponent},
     { path: 'update-account', component: UpdateAccountComponent},
     { path: 'security', component: SecurityComponent},
-    { path: 'create-chatroom', component: CreateChatroomComponent}
+    { path: 'create-chatroom', component: CreateChatroomComponent},
+    { path: 'Chatroom', component: ChatroomMembersComponent}
   ]},
   {path: 'logout', component: LogoutComponent, canActivate: [GuardService], data: {only: '1'}, runGuardsAndResolvers: 'always'},
 

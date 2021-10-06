@@ -5,5 +5,6 @@ export interface IMessage {
     Username?: string;
     Picture?: string;
     Fullname?: string;
+    Chatroom_id?: string;
 
 }
