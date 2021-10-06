@@ -16,7 +16,7 @@ export class FileserviceService {
     let headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     });
-    this.http.post(`http://192.168.4.126/tectalk/api/account/uploadPicture/${fileName}`, body, {headers});
+    this.http.post(`http://192.168.4.126/tectalk/api/account/uploadPicture`, body, {headers});
   }
 }
 

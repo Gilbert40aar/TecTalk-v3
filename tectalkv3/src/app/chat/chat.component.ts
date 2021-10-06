@@ -25,6 +25,7 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.loadAccounts();
     this.loadSingleAccount();
+    //console.log(window.localStorage.getItem('account_id'));
   }
 
   async loadAccounts() {
@@ -68,8 +69,8 @@ export class ChatComponent implements OnInit {
   sendMessage(form: NgForm) {
     let d = new Date();
     let data: IMessage = {
-      account_id: window.localStorage.getItem('account_id'),
-      datetime: d.getFullYear() + "." + d.getMonth() + "." + d.getDate() +" " + this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()),
+      Account_id: window.localStorage.getItem('account_id'),
+      Datetime: d.getFullYear() + "." + d.getMonth() + "." + d.getDate() +" " + this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()),
       Message: form.value.message,
     }
     

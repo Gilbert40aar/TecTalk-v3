@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RecoverpwComponent } from './recoverpw/recoverpw.component';
 import { ChatComponent } from './chat/chat.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './chat/account/account.component';
@@ -18,6 +18,7 @@ import { SecurityComponent } from './chat/security/security.component';
 import { OnlinelistComponent } from './chat/onlinelist/onlinelist.component';
 import { ChatMessagesComponent } from './chat/chat-messages/chat-messages.component';
 import { MessagesComponent } from './chat/messages/messages.component';
+import { CreateChatroomComponent } from './create-chatroom/create-chatroom.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MessagesComponent } from './chat/messages/messages.component';
     SecurityComponent,
     OnlinelistComponent,
     ChatMessagesComponent,
-    MessagesComponent
+    MessagesComponent,
+    CreateChatroomComponent
   ],
   imports: [
     BrowserModule,

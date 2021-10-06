@@ -7,7 +7,7 @@
         <span class="profile-name">{{fullname}}</span>
     </div>
     <p class="profile-text"></p>
-    <form #myform="ngForm" enctype="multipart/form-data">
+    <form #myform="ngForm" method="post" enctype="multipart/form-data">
         <input type="hidden" ngModel name="account_id" value="{{account_id}}">
         <div class="dropdown" id="personal" (click)="personalBoxToggle()">
             Personal Info <i class=" fa fa-angle-down "></i>
@@ -31,7 +31,7 @@
             </div>
             <div class="box-group ">
                 <label>Picture</label>
-                <input type="file" ngModel name="picture" placeholder="Enter Location " class="form-control" (change)="onFileUpload($event)">
+                <input type="file" ngModel name="picture" placeholder="Upload Picture " class="form-control">
             </div>
         </div>
 
@@ -45,6 +45,6 @@
         </div>
         <div class="dropdown-box" id="help-box"></div>
 
-        <button type="submit " class="btn btn-update " (click)="updateAccount(myform, $event)">Save Update</button>
+        <button type="submit " class="btn btn-update " (click)="updateAccount(myform)">Save Update</button>
     </form>
 </div>

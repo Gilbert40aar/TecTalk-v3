@@ -1,1 +1,15 @@
-<p>chatrooms works!</p>
+<div class="page" id="chatrooms">
+    <div class="headline-group">
+        <h4 class="headline">Chatrooms</h4>
+        <button type="button" class="fa fa-plus btn btn-edit" (click)="newChatroom()"></button>
+    </div>
+    <div class="flex-row"></div>
+    <div class="chats">
+        <div class="chats-item" *ngFor="let room of chatrooms" id={{room.Chatroom_id}} (click)="showChatroom($event)">
+            <div class="item-group">
+                <span class="fullname">{{room.ChatroomName}} Chatroom</span>
+                <span class="last-message">Chatroom for everyone!</span>
+            </div>
+        </div>
+    </div>
+</div>

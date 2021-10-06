@@ -20,16 +20,13 @@ export class MessagesComponent implements OnInit {
     this.interval = setInterval(this.getMessages.bind(this), 1000);
     //this.getMessages();
     this.account_id = localStorage.getItem('account_id');
+    //console.log(this.account_id);
+    
   }
 
   async getMessages() {
     let data: ChatMessageContainer = await this.api.getChatMessages();
-    //console.log(data);
-    
     this.chat = data.Messages;
-
-    //console.log(this.chat);
-    
   }
 
   ngOnDestroy(): void {

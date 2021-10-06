@@ -28,10 +28,11 @@ export class AccountComponent implements OnInit {
   async loadSingleAccount() {
     let user: DataContainerSingle = await this.api.showSingleAccount();
     this.account = user.Account[0];
-    if(!this.account.fullname) {
+    
+    if(!this.account.firstname && !this.account.lastname) {
       this.fullName = this.account.username;
     } else {
-      this.fullName = this.account.fullname;
+      this.fullName = this.account.firstname + " " + this.account.lastname;
     }
 
     this.email = this.account.email;

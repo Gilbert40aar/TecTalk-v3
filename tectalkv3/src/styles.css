@@ -581,6 +581,7 @@ body {
     color: rgba(247, 245, 243, .75);
     padding: .5rem;
     justify-content: var(--justify-content-space-between);
+    cursor: pointer;
 }
 
 .menu-views .chats .chats-item:hover {
@@ -632,6 +633,30 @@ body {
     justify-content: var(--justify-content-flex-end);
     padding: .25rem 0;
     font-size: 12px;
+}
+
+.menu-views .form-group {
+    margin: 1rem 0;
+    display: var(--display-flex);
+    flex-direction: var(--flex-row);
+    flex-wrap: var(--flex-wrap);
+}
+
+.menu-views .form-group label {
+    color: rgba(247, 245, 243, .75);
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.menu-views .form-group .form-control {
+    background-color: rgba(247, 245, 243, .25);
+    color: rgba(247, 245, 243, .75);
+    border: none;
+    font-size: 16px;
+    border-radius: .25rem !important;
+    outline: none;
+    padding: 0.35rem !important;
+    width: 100%;
 }
 
 

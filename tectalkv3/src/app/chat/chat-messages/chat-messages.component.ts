@@ -11,7 +11,7 @@ import { IMessage } from 'src/app/interfaces/message';
 export class ChatMessagesComponent implements OnInit {
 
   chat: IMessage[] = [];
-  message: string;
+  Message: string;
 
   constructor(private api: ApiService) { }
 
@@ -29,15 +29,15 @@ export class ChatMessagesComponent implements OnInit {
   sendMessage(form: NgForm) {
     let d = new Date();
     let data: IMessage = {
-      account_id: window.localStorage.getItem('account_id'),
-      datetime: d.getFullYear() + "." + d.getMonth() + "." + d.getDate() +" " + this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()),
-      Message: form.value.message,
+      Account_id: window.localStorage.getItem('account_id'),
+      Datetime: d.getFullYear() + "." + d.getMonth() + "." + d.getDate() +" " + this.pad(d.getHours()) + ":" + this.pad(d.getMinutes()) + ":" + this.pad(d.getSeconds()),
+      Message: form.value.Message,
     }
     
     //console.log(data);
     if(this.api.sendMessage(data)) {
       //form.value.message = "";
-      this.message = ""
+      this.Message = ""
 
     }
   }

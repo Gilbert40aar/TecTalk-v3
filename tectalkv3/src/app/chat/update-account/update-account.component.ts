@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IAccount } from 'src/app/interfaces/account';
 import { DataContainerSingle } from 'src/app/interfaces/dataContainer';
 import { ApiService } from 'src/app/services/api.service';
-import { NgForm, NgModel } from '@angular/forms';
+import { NgForm, FormsModule } from '@angular/forms';
 import { FileserviceService } from 'src/app/services/fileservice.service';
 
 
@@ -33,10 +33,7 @@ export class UpdateAccountComponent implements OnInit {
 
   async getSingleAccount() {
     let user: DataContainerSingle = await this.api.showSingleAccount();
-    this.account = user.Account[0];
-
-    console.log(this.account);
-    
+    this.account = user.Account[0];  
 
     if(this.account.firstname === undefined && this.account.lastname === undefined) {
       this.fullname = this.account.username;
@@ -51,7 +48,7 @@ export class UpdateAccountComponent implements OnInit {
     this.account_id = window.localStorage.getItem('account_id');
   }
 
-  updateAccount(form: NgForm, event) {
+  updateAccount(form: NgForm) {
     
     let picture: string = form.value.picture;
     let pathRegex = /^(.*\\).*$/;
@@ -73,18 +70,18 @@ export class UpdateAccountComponent implements OnInit {
       console.log('Something went wrong...');
     } else {
       console.log('Account is updated...');
-      this.fileservice.OnUploadFile(event.target.files[0]);
+      this.fileservice.OnUploadFile(form.value.picture);
     }
     
   }
 
-  onFileUpload(event) {
+  onFileUpload(form: NgForm) {
     //this.selectedFile = event.target.files[0]; 
-    this.fileservice.OnUploadFile(event.target.files[0]);
+    this.fileservice.OnUploadFile(form.value.picture);
   }
 
-  onUploadFile() {
-    this.fileservice.OnUploadFile(this.selectedFile);
+  onUploadFile(index,event) {
+    
   }
 
   personalBoxToggle() {

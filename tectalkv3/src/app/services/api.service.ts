@@ -3,8 +3,9 @@ import { HttpHeaders, HttpClient, HttpParams, HttpResponse } from '@angular/comm
 import {IAccount} from 'src/app/interfaces/account';
 import {ILogin, ImailCheck, IpassCheck} from 'src/app/interfaces/login';
 import { IGrantedLogin } from 'src/app/interfaces/grantedLogin';
-import { DataContainer, DataContainerSingle, ChatMessageContainer } from 'src/app/interfaces/dataContainer';
+import { DataContainer, DataContainerSingle, ChatMessageContainer, ChatroomContainer } from 'src/app/interfaces/dataContainer';
 import { IMessage } from 'src/app/interfaces/message';
+import { IChatrooms } from '../interfaces/chatrooms';
 
 @Injectable({
   providedIn: 'root'
@@ -84,5 +85,18 @@ export class ApiService {
     });
 
     return this.http.post<DataContainerSingle>(this.baseUrl + "account/update", body, {headers: headers}).toPromise();
+  }
+
+  async getchatrooms(): Promise<ChatroomContainer> {  
+    return this.http.get<ChatroomContainer>(this.baseUrl + 'chatrooms/select').toPromise();
+  }
+
+  createChatroom(data: IChatrooms): Promise<Object> {
+    const body = JSON.stringify(data);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+    console.log(body);
+    return this.http.post<ChatroomContainer>(this.baseUrl + 'chatrooms/create', body, {headers: headers}).toPromise();
   }
 }
