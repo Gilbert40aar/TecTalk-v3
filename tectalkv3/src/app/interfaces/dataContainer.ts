@@ -1,7 +1,7 @@
 import { IAccount } from './account';
 import { IGrantedLogin } from './grantedLogin';
 import { IMessage } from './message';
-import { IChatrooms } from './chatrooms';
+import { IChatrooms, IChatroomMembers } from './chatrooms';
 
 export interface DataContainer {
     Accounts: IAccount[];
@@ -17,4 +17,8 @@ export interface ChatMessageContainer {
 
 export interface ChatroomContainer {
     Chatrooms: IChatrooms[];
+}
+
+export interface ChatroomMembersContainer {
+    Members: IChatroomMembers[];
 }

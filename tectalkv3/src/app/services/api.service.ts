@@ -3,9 +3,9 @@ import { HttpHeaders, HttpClient, HttpParams, HttpResponse } from '@angular/comm
 import {IAccount} from 'src/app/interfaces/account';
 import {ILogin, ImailCheck, IpassCheck} from 'src/app/interfaces/login';
 import { IGrantedLogin } from 'src/app/interfaces/grantedLogin';
-import { DataContainer, DataContainerSingle, ChatMessageContainer, ChatroomContainer } from 'src/app/interfaces/dataContainer';
+import { DataContainer, DataContainerSingle, ChatMessageContainer, ChatroomContainer, ChatroomMembersContainer } from 'src/app/interfaces/dataContainer';
 import { IMessage } from 'src/app/interfaces/message';
-import { IChatrooms } from '../interfaces/chatrooms';
+import { IChatrooms, IChatroomMembers } from '../interfaces/chatrooms';
 
 @Injectable({
   providedIn: 'root'
@@ -98,7 +98,18 @@ export class ApiService {
     let headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     });
-    console.log(body);
     return this.http.post<ChatroomContainer>(this.baseUrl + 'chatrooms/create', body, {headers: headers}).toPromise();
+  }
+
+  addAccountToRoom(data: IChatroomMembers): Promise<Object> {
+    const body = JSON.stringify(data);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+    return this.http.post<ChatroomMembersContainer>(this.baseUrl + 'chatrooms/addMember', body, {headers: headers}).toPromise();
+  }
+
+  async showMembers(id): Promise<ChatroomMembersContainer> {
+    return await this.http.get<ChatroomMembersContainer>(this.baseUrl + 'chatrooms/getMembers/' + id).toPromise();
   }
 }
