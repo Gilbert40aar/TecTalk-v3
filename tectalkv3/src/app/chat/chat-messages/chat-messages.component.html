@@ -28,8 +28,8 @@
 </div>
 <div class="chat-footer">
     <form #myform="ngForm">
-        <input type="text" ngModel name="Message" id="Message" class="form-control" placeholder="Enter message..." [value]="Message" />
-        <button class="btn btn-emoji fa fa-smile-o"></button>
+        <textarea type="text" ngModel name="Message" id="Message" class="form-control" placeholder="Enter message..." [value]="Message" (ngModelChange)="MessageChange($event)" maxlength="1024"></textarea>
+        <button class="btn btn-emoji fa fa-smile-o" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'bottom' || 'top' || 'left' || 'right'" (emojiPickerSelect)="handleSelection($event)"></button>
         <button class="btn btn-attachment fa fa-paperclip"></button>
         <button type="submit" class="btn btn-send fa fa-paper-plane" (click)="sendMessage(myform)"></button>
     </form>

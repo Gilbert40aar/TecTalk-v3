@@ -1,6 +1,6 @@
 <span class="chat-item" *ngFor="let msg of chat" [ngClass]="{'right': msg.Account_id == account_id}">
     <section class="message">
-        {{msg.Message}}
+        <p>{{msg.Message}}</p>
     </section>
     <section class="message-from">
         <div class="message-info">

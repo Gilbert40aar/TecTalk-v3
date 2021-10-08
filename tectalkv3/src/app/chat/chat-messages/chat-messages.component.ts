@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { NgForm } from '@angular/forms';
 import { IMessage } from 'src/app/interfaces/message';
+import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
 
 @Component({
   selector: 'app-chat-messages',
@@ -39,9 +40,18 @@ export class ChatMessagesComponent implements OnInit {
     //console.log(data);
     if(this.api.sendMessage(data)) {
       //form.value.message = "";
-      this.Message = ""
+      this.Message = "";
 
     }
+  }
+
+  toggled: boolean = false;
+  handleSelection(event) {
+    this.Message += event.char;
+  }
+
+  MessageChange(event) {
+    this.Message = event;
   }
 
 }

@@ -4,7 +4,7 @@
         <span class="user-text">{{ account.username }}</span>
     </span>
 </div>
-<h5 class="recent">Recent</h5>
+<h5 class="recent">Online Users</h5>
 <div class="chats" id="onlinelist">
     <section class="chats-item" *ngFor="let account of accounts">
         <section class="online-indicator" [ngClass]="{'online':account.online_status === '1', 'offline':account.online_status !== '1'}"></section>

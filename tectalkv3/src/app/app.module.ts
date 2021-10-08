@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +45,8 @@ import { ChatroomMembersComponent } from './chat/chatroom-members/chatroom-membe
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxEmojiPickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
